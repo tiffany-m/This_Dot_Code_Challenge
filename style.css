@@ -6,7 +6,14 @@
 
 body {
   font-family: 'Muli', sans-serif;
-  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +24,7 @@ body {
 }
 
 input {
-  background-color: #A8EB12;
+  background-color: #a8eb12;
   border-radius: 10px;
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
@@ -29,4 +36,20 @@ input {
 
 input::placeholder {
   color: black;
+}
+
+.card {
+  background-color: #a8eb12;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-top: 20px;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  border: 2px solid black;
 }

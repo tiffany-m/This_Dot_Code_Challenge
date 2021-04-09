@@ -1,27 +1,46 @@
-const API_URL = 'https://api.github.com/search/users?q=';
+const API_URL = 'https://api.github.com/search/users/';
 
 const form = document.getElementById('form');
 const search = document.getElementById('search');
+const main = document.getElementById('main');
 
-getUsers(API_URL);
+getUser('tiffany-m');
 
-async function getUsers(url) {
-  const res = await fetch(url);  //response, fetch returns a promise
-  const data = await res.json();  //gives us actual data response
+async function getUser(user) {
+  const res = await fetch(API_URL + user);
+  const data = await res.json();
 
-  console.log(data.results);
+  createCard(data);
 }
 
-form.addEventListener('submit', (e) => { //listen for submit
-  e.preventDefault(); // so doesn't submit to page
+function createCard(user) {
+  const cardData = `
+    <div class="card">
+      <div>
+        <img src="${user.avatar_url}">
+      </div>
+      <div class="user-info">
+        <h1>${user.name}</h1>
+        <ul>
+          <li>${user.followers_url}</li>
+          <li>${user.starred_url}</li>
+          <li>${user.repos_url}</li>
+        </ul>
+      </div>
+    </div>
+  `;
 
-  const searchTerm = search.value;
+  main.innerHTML = cardData;
+}
 
-  if (searchTerm && searchTeam !== '') { //if searchTerm exists and is not equal to nothing
-    getUsers(API_URL + searchTerm); //adds searchTerm to end of URL
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const user = search.value;
 
-    search.value = '' //clear search value
-  } else {
-    window.location.reload() //page reloads if nothing added to search
+  if (user && user !== '') {
+    getUser(user);
+    search.value = '';
   }
 });
+
+
