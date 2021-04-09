@@ -12,7 +12,7 @@ async function getUsers(url) {
   console.log(data.results);
 }
 
-form.addEventListener('submit', (e) => { //listen for submit, event object
+form.addEventListener('submit', (e) => { //listen for submit
   e.preventDefault(); // so doesn't submit to page
 
   const searchTerm = search.value;
