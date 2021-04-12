@@ -15,28 +15,42 @@ async function getUser(userName) {
   const followersBody = await followersRes.json();
   const followerCount = followersBody.length;
 
-  createCard(user);
-}
+  const reposRes = await fetch(user.repos_url);
+  const reposBody = await reposRes.json();
+  const reposCount = reposBody.length
 
-function createCard(user) {
-  const cardData = `
+  console.log(reposCount)
+
+  createCard(user);
+
+  function createCard(user) {
+    const cardData = `
     <div class="card">
       <div>
         <img src="${user.avatar_url}">
       </div>
       <div class="user-info">
-        <h1>${user.name}</h1>
+        <h1>User: ${user.login}</h1>
         <ul>
-          <li>${user.followers_url}</li>
+          <li>Followers Count: ${followerCount}</li>
           <li>${user.starred_url}</li>
-          <li>${user.repos_url}</li>
+          <li>Repos Count: ${reposCount}</li>
+            <h3>Example Repos</h3>
+              <ul>
+                <li>${reposBody[0].name}</li>
+                <li>${reposBody[1].name}</li>
+                <li>${reposBody[2].name}</li>
+              </ul>
         </ul>
       </div>
     </div>
   `;
 
-  main.innerHTML = cardData;
+    main.innerHTML = cardData;
+  }
 }
+
+
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
