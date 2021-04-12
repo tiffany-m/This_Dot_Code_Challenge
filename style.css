@@ -38,6 +38,13 @@ input::placeholder {
   color: black;
 }
 
+h1 {
+  text-align: center;
+}
+
+h3 {
+  margin: 20px 0 5px 0;
+}
 .card {
   background-color: #a8eb12;
   border-radius: 10px;
@@ -47,9 +54,20 @@ input::placeholder {
   margin-top: 20px;
 }
 
+.avatar {
+  display: flex;
+  justify-content: center;
+}
+
 img {
   height: 150px;
   width: 150px;
   border-radius: 10px;
   border: 2px solid black;
 }
+
+.bullets {
+  list-style-type: none;
+  padding: 0;
+}
+

@@ -4,7 +4,7 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 const main = document.getElementById('main');
 
-getUser('tiffany-m');
+getUser();
 
 async function getUser(userName) {
   const res = await fetch(API_URL + userName);
@@ -26,20 +26,19 @@ async function getUser(userName) {
   function createCard(user) {
     const cardData = `
     <div class="card">
-      <div>
+      <div class="avatar">
         <img src="${user.avatar_url}">
       </div>
       <div class="user-info">
         <h1>User: ${user.login}</h1>
-        <ul>
-          <li>Followers Count: ${followerCount}</li>
-          <li>${user.starred_url}</li>
-          <li>Repos Count: ${reposCount}</li>
-            <h3>Example Repos</h3>
-              <ul>
-                <li>${reposBody[0].name}</li>
-                <li>${reposBody[1].name}</li>
-                <li>${reposBody[2].name}</li>
+        <ul class="bullets">
+          <li><strong>Followers Count:</strong> ${followerCount}</li>
+          <li><strong>Repos Count:</strong> ${reposCount}</li>
+            <h3>Example Repos:</h3>
+              <ul class="bullets">
+                <li>-  ${reposBody[0].name}</li>
+                <li>-  ${reposBody[1].name}</li>
+                <li>-  ${reposBody[2].name}</li>
               </ul>
         </ul>
       </div>
