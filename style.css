@@ -38,6 +38,11 @@ input::placeholder {
   color: black;
 }
 
+input:focus {
+  outline: none;
+  background-color: #a8eb12;
+}
+
 h1 {
   text-align: center;
 }

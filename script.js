@@ -49,8 +49,6 @@ async function getUser(userName) {
   }
 }
 
-
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const user = search.value;
